@@ -19,7 +19,7 @@ const ProfileBio = ({currentProfile}) => {
                     )
                 }
             </div>
-            <div>
+            <div style={{ marginTop: "1rem" }}>
                 {
                     currentProfile?.about ? (
                         <>
@@ -35,4 +35,4 @@ const ProfileBio = ({currentProfile}) => {
     )
 }
 
-export default ProfileBio
+export default ProfileBio;

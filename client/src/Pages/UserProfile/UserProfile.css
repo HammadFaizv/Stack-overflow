@@ -84,3 +84,31 @@
 .user-cancel-btn:hover{
     background-color: rgb(225,225,225);
 }
+
+.bio-con {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .user-details-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .edit-profile-form label input,
+    .edit-profile-form label textarea {
+      padding: 5px;
+      margin-bottom: 20px;
+      border: solid 1px #dbd9d9;
+      width: 50%;
+      margin-top: 6px;
+    }
+    .user-details-container {
+      margin-top: 12px;
+    }
+  }

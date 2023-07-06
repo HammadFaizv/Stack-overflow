@@ -9,6 +9,8 @@ import DisplayQuestion from './Pages/Questions/DisplayQuestion.jsx';
 import Tags from './Pages/Tags/Tags.jsx';
 import Users from './Pages/Users/Users.jsx'
 import UserProfile from './Pages/UserProfile/UserProfile.jsx';
+import Subscription from './Pages/SubscriptionTier/Subscription.jsx';
+import ChatAI from "./Pages/ChatAI/ChatAi";
 
 const AllRoutes = () => {
   return (
@@ -21,6 +23,8 @@ const AllRoutes = () => {
         <Route path='/Tags' element={<Tags />} />
         <Route path='/Users' element={<Users />} />
         <Route path='/Users/:id' element={<UserProfile />} />
+        <Route path='/Subscription' element={<Subscription />} />
+        <Route path="/ChatAi" element={<ChatAI />} />
       </Routes>
   )
 }

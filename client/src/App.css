@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px red solid; */
+}
+
 .home-container-1{
     min-height: 100vh;
     max-width: 1250px;
@@ -14,3 +21,32 @@
     padding: 24px;
     box-sizing: border-box;
 }
+
+@media only screen and (max-width: 600px) {
+    * {
+      font-size: 12px;
+    }
+  
+    h1 {
+      font-size: 1.8rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    h4 {
+      font-size: 1.2rem;
+    }
+  
+    .home-container-2 {
+      width: 100%;
+    }
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .home-container-2 {
+      width: calc(100% - 164px);
+    }
+  }

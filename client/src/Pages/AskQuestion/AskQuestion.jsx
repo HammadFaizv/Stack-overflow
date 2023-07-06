@@ -11,13 +11,30 @@ const AskQuestion = () => {
     const [ questionTags, setQuestionTags ] = useState('')
 
     const dispatch = useDispatch();
-    const User = useSelector((state) => state.currentUserReducer)
     const navigate = useNavigate();
+    const User = useSelector((state) => state.currentUserReducer)
+    const questions = useSelector(state => state.questionsReducer.Asked );
+    // console.log("questions today",questions);
 
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log({questionTitle, questionBody, questionTags})
-        dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name, userId: User.result._id }, navigate))
+        let asked = questions === undefined ? 0 : questions.data;
+
+        console.log(questions,asked);
+        if(User.result.subscription === "free" && asked < 1){
+            dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name, userId: User.result._id }, navigate))
+        }
+        else if (User.result.subscription === "silver" && asked < 5){
+            dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name, userId: User.result._id }, navigate))
+        }
+        else if (User.result.subscription === "gold"){
+            dispatch(askQuestion({ questionTitle, questionBody, questionTags, userPosted: User.result.name, userId: User.result._id }, navigate))
+        }
+        else {
+            alert("You have asked the Maximum number of questions today as your plan allows. Upgrade to silver or gold plan to ask more questions.");
+            navigate('/Subscription');
+        }
     }
 
     const handleEnter = (e) => {
@@ -26,6 +43,7 @@ const AskQuestion = () => {
         }
     }
     return (
+        <>
         <div className="ask-question">
         <div className="ask-ques-container">
             <h1>Ask a public Question</h1>
@@ -52,6 +70,7 @@ const AskQuestion = () => {
             </form>
         </div>
     </div>
+    </>
   )
 }
 

@@ -43,7 +43,7 @@ const UserProfile = () => {
                             ) 
                         }
                     </div>
-                    <>
+                    <div className='bio-con'>
                         {
                             Switch ? (
                                 <EditProfileForm currentUser={currentUser} setSwitch={setSwitch}/>
@@ -51,11 +51,11 @@ const UserProfile = () => {
                                 <ProfileBio currentProfile={currentProfile}/>
                             )
                         }
-                    </>
+                    </div>
                 </section>
             </div>
         </div>
     )
 }
 
-export default UserProfile
+export default UserProfile;

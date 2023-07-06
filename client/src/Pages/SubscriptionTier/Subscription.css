@@ -1,0 +1,112 @@
+.subs-container{
+    margin-top: 30px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    min-height: 75vh;
+}
+
+/* background-color: #30336b;
+min-height: 100vh;
+display: flex;
+align-items: center; */
+
+.subs-container h2{
+    color:rgba(0, 0, 0, 0.52);
+    font-size: 32px;
+    margin-top: 10px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.pricing-table{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: min(1600px, 100%);
+    margin: auto;
+}
+
+  .pricing-card{
+    flex: 1;
+    max-width: 360px;
+    background-color: #efe1d0;
+    margin: 20px 10px;
+    padding: 25px 10px;
+    border-radius: 15px;
+    text-align: center;
+    /* cursor: pointer; */
+    overflow: hidden;
+    color: #2d2d2d;
+    transition: .3s linear;
+
+  }
+  
+  .pricing-card-header{
+    background-color: #ef8236;
+    display: inline-block;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 20px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: .4s linear;
+  }
+  
+  
+  .price{
+    font-size: 50px;
+    color: #ef8236;
+    margin: 10px 0;
+    transition: .2s linear;
+  }
+  
+  .price sup, .price span{
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .pricing-card:nth-child(1){
+    border: #2d2d2d 10px solid;
+  }
+  .pricing-card:nth-child(2){
+    border: #9f9f9f 10px solid;
+  }
+  .pricing-card:nth-child(3){
+    border: #dfe449 10px solid;
+  }
+
+  .pricing-card li{
+    font-size: 16px;
+    padding: 5px 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: left;
+  }
+  
+  .order-btn{
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    border: 2px solid #ef8236;
+    color: #ef8236;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .3s linear;
+  }
+  
+  .order-btn:hover{
+    background-color: #ef8236;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width:1100px){
+    .pricing-card{
+      flex: 50%;
+    }
+  }

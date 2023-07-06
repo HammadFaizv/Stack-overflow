@@ -1,0 +1,71 @@
+.chat-message-box {
+    display: flex;
+    gap: 1rem;
+    margin: 24px 0 10px 0;
+  }
+  
+  .chat-code-box {
+    display: flex;
+    gap: 1rem;
+    margin: 24px 0 10px 0;
+  }
+  
+  .code-box {
+    width: calc(100% - 50px);
+  }
+  
+  .w-10 {
+    width: 35px;
+  }
+  
+  .p-10 {
+    padding-top: 10px;
+  }
+  
+  .message-box {
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .OTP-container{
+    margin: auto;
+  }
+
+  .container{
+    padding: 4rem 3rem;
+    background-color: rgba(248, 218, 180, 0.891);
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .otp-button{
+    margin-top: 25px;
+    width: 100%;
+    border: none;
+    background-color: #ef8236;
+    color: #fff;
+    font-size: 1rem;
+    padding: 9px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+  }
+
+  .otp-button:hover{
+    cursor: pointer;
+    background-color: #f08233da;
+  }
+
+.otp-icon{
+  background-color: #ef8236;
+  width: 55px;
+  margin: 15px auto;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.otp-form{
+  margin-top: 2rem;
+  font-size: 20px;
+  font-weight: bold;
+}

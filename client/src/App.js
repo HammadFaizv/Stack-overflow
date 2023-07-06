@@ -1,27 +1,41 @@
 import { BrowserRouter as Router} from 'react-router-dom';
 import AllRoutes from './AllRoutes';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import { fetchAllQuestions } from './actions/question'
+import { fetchAllQuestions, askedQuestions } from './actions/question'
 import { fetchAllUsers } from './actions/users';
+import { checkSubscription } from './actions/subscription';
+import { SidebarProvider } from "./components/LeftSidebar/LeftSidebarContext";
+import { ChatAiProvider } from "./components/ChatAI/ChatAiContext";
+import { fetchChat } from "./actions/chat";
 
 function App() {
 
   const dispatch = useDispatch()
+  const User = useSelector((state) => (state.currentUserReducer));
 
   useEffect(() => {
     dispatch(fetchAllQuestions())
     dispatch(fetchAllUsers())
-  }, [dispatch])
+    dispatch(checkSubscription(User?.result._id))
+    if(User !== null) {
+      dispatch(fetchChat(User?.result._id));
+      dispatch(askedQuestions(User?.result._id));
+    }
+  }, [dispatch, User])
   
   return (
     <div className="App">
       <Router>
-        <Navbar />
-        <AllRoutes />
+        <SidebarProvider>
+          <Navbar />
+          <ChatAiProvider>
+            <AllRoutes />
+          </ChatAiProvider>
+        </SidebarProvider>
       </Router>
     </div>
   );

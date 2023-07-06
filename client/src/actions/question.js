@@ -5,6 +5,7 @@ export const askQuestion = (questionData, navigate) => async (dispatch) => {
         const { data } = await api.postQuestion(questionData)
         dispatch({ type: "POST_QUESTION", payload: data})
         dispatch(fetchAllQuestions())
+        dispatch(askedQuestions(questionData.userId));
         navigate('/')
     } catch (error) {
         console.log("action question error: " + error)
@@ -24,6 +25,7 @@ export const deleteQuestion = (id, navigate) => async (dispatch) => {
     try {
         await api.deleteQuestion(id)
         dispatch(fetchAllQuestions())
+        dispatch(askedQuestions(id));
         navigate('/')
     } catch (error) {
         console.log(error)
@@ -56,5 +58,15 @@ export const deleteAnswer = (id, answerId, noOfAnswers) => async (dispatch) => {
         dispatch(fetchAllQuestions())
     } catch (error) {
         console.log(error)
+    }
+}
+
+export const askedQuestions = (id) => async (dispatch) => {
+    try {
+        const questions = await api.questionsAsked(id);
+
+        dispatch({ type: "ASKED_QUESTIONS" , payload: questions })
+    } catch (err){
+        console.log("asked Questions error",err);
     }
 }
