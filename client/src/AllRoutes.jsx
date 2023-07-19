@@ -11,6 +11,8 @@ import Users from './Pages/Users/Users.jsx'
 import UserProfile from './Pages/UserProfile/UserProfile.jsx';
 import Subscription from './Pages/SubscriptionTier/Subscription.jsx';
 import ChatAI from "./Pages/ChatAI/ChatAi";
+import Community from './Pages/Community/Community.jsx';
+import CommunityPost from './Pages/CommunityPost/CommunityPost.jsx';
 
 const AllRoutes = () => {
   return (
@@ -24,7 +26,9 @@ const AllRoutes = () => {
         <Route path='/Users' element={<Users />} />
         <Route path='/Users/:id' element={<UserProfile />} />
         <Route path='/Subscription' element={<Subscription />} />
-        <Route path="/ChatAi" element={<ChatAI />} />
+        <Route path='/ChatAi' element={<ChatAI />} />
+        <Route path='/Community' element={<Community />} />
+        <Route path='/Community/:id' element={<CommunityPost />} />
       </Routes>
   )
 }

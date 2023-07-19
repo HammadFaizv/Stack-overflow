@@ -11,6 +11,7 @@ import { checkSubscription } from './actions/subscription';
 import { SidebarProvider } from "./components/LeftSidebar/LeftSidebarContext";
 import { ChatAiProvider } from "./components/ChatAI/ChatAiContext";
 import { fetchChat } from "./actions/chat";
+import { fetchPosts } from './actions/posts';
 
 function App() {
 
@@ -20,10 +21,11 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllQuestions())
     dispatch(fetchAllUsers())
-    dispatch(checkSubscription(User?.result._id))
+    dispatch(fetchPosts())
     if(User !== null) {
       dispatch(fetchChat(User?.result._id));
       dispatch(askedQuestions(User?.result._id));
+      dispatch(checkSubscription(User?.result._id));
     }
   }, [dispatch, User])
   

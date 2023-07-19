@@ -17,6 +17,20 @@
 .user-name p {
     color: #7e7e7e;
 }
+
+.user-friend-button {
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.user-friend-button:hover{
+    background-color: #a2a2a2;
+    cursor: pointer;
+}
+
 .edit-profile-btn{
     padding: 8px 10px;
     border: solid 1px #7e7e7e;
@@ -90,6 +104,12 @@
     width: 100%;
   }
   
+.friends-heading{
+    padding: 5px;
+    margin-top: 20px;
+    border-top: 1px#7e7e7e solid;
+}
+
   /* Extra small devices (phones, 600px and down) */
   @media only screen and (max-width: 600px) {
     .user-details-container {

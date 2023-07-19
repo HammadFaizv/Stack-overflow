@@ -6,7 +6,7 @@ export const getAllUsers = async (req, res) => {
         const allUsers = await User.find();
         const allUserDetails = []
         allUsers.forEach(user => {
-            allUserDetails.push({ _id: user._id, name: user.name, about: user.about, tags: user.tags, joinedOn: user.joinedOn })
+            allUserDetails.push({ _id: user._id, name: user.name, about: user.about, tags: user.tags, joinedOn: user.joinedOn, friends: user.friends, subscription: user.subscription })
         })
         res.status(200).json(allUserDetails);
     } catch (error) {
@@ -28,5 +28,55 @@ export const updateProfile = async (req, res) => {
         res.status(200).json(updatedProfile)
     } catch (error) {
         res.status(405).json({ message: error.message })
+    }
+}
+
+export const follow = async (req, res) => {
+    const user = req.body.userId;
+    const friend = req.body.id;
+    try{
+        const updatedUser = await User.findByIdAndUpdate(
+            user,
+            {
+                $addToSet: { friends: friend },
+            },
+            { new: true }
+        );
+        await User.findByIdAndUpdate(
+            friend,
+            {
+                $addToSet: { friends: user },
+            },
+            { new: true }
+        );
+        res.status(200).json(updatedUser);
+    } catch (err) {
+        console.log(err);
+        res.status(405).json(err);
+    }
+}
+
+export const unfollow = async (req, res) => {
+        const user = req.body.userId;
+        const friend = req.body.id;
+    try{
+        const updatedUser = await User.findByIdAndUpdate(
+            user,
+            {
+                $pull: { friends: friend },
+            },
+            { new: true }
+        );
+        await User.findByIdAndUpdate(
+            friend,
+            {
+                $pull: { friends: user },
+            },
+            { new: true }
+        );
+        res.status(200).json(updatedUser);
+    } catch (err) {
+        console.log(err);
+        res.status(405).json(err);
     }
 }

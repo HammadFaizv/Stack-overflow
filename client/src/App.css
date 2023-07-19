@@ -45,8 +45,18 @@
   }
   
   /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
+  @media only screen and (max-width: 1024px) {
     .home-container-2 {
-      width: calc(100% - 164px);
+      width:100% ;
+    }
+
+    .main-bar{
+      width: 100%;
+    }
+
+    .right-sidebar{
+      position: absolute;
+      float: none;
+      display: none;
     }
   }

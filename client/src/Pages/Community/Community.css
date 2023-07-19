@@ -1,0 +1,17 @@
+.home-container-3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1p solid #d6d9dc;
+    padding: 35px;
+    box-sizing: border-box;
+}
+
+.home-container-4{
+    
+    max-width: 1250px;
+    width: 100%;
+    display: flex;
+    /* justify-content: space-around; */
+    margin: 0% auto;
+}

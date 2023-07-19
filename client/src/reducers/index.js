@@ -6,7 +6,8 @@ import usersReducer from './users'
 import chatReducer from './chat';
 import errorReducer from './error';
 import otpReducer from "./otp";
+import postsReducer from "./post";
 
 export default combineReducers({
-    authReducer, currentUserReducer, questionsReducer, usersReducer, chatReducer, errorReducer, otpReducer
+    authReducer, currentUserReducer, questionsReducer, usersReducer, chatReducer, errorReducer, otpReducer, postsReducer
 })

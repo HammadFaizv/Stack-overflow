@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const ProfileBio = ({currentProfile}) => {
+const ProfileBio = ({currentProfile, users}) => {
+
+    const friends = [];
+    if( currentProfile?.friends.length !== 0){
+        currentProfile?.friends.forEach( id => {
+            let friend = users.filter( (user) => user._id === id )[0]
+            friends.push(friend);
+        }); 
+    }
+    console.log(friends);
+
     return (
         <div>
             <div>
                 {
                     currentProfile?.tags.length !== 0 ? (
                         <>
-                            <h4>Tags watched</h4>
+                            <h4>Tags of Expertise</h4>
                             {
                                 currentProfile?.tags.map((tag) => (
                                     <p key={tag}>{tag}</p>
@@ -31,6 +41,17 @@ const ProfileBio = ({currentProfile}) => {
                     )
                 }
             </div>
+            <div>
+                <h4 className='friends-heading'> Friends: </h4>
+
+                { friends.length > 0 && 
+                    friends.map( (friend) => 
+                    <div key={friend._id}>{friend.name}</div>
+                    )
+                }
+                { friends.length === 0 && <p>No friends yet 😔...</p>}
+            </div>
+            
         </div>
     )
 }

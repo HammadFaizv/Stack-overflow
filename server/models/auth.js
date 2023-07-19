@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
     joinedOn: {type: Date, default: Date.now },
     subscription: {type: String, default: "free"},
     subsExpire: {type: Number, default: 0},
+    friends: {type:[String], default:[]},
 })
 
 export default mongoose.model("User", userSchema)

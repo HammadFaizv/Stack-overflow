@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import './AskQuestion.css'
@@ -15,7 +15,12 @@ const AskQuestion = () => {
     const User = useSelector((state) => state.currentUserReducer)
     const questions = useSelector(state => state.questionsReducer.Asked );
     // console.log("questions today",questions);
-
+    useEffect( () => {
+        if(User === null) {
+            alert("Please sign in to ask questions!");
+            navigate('/Auth');
+        } // eslint-disable-next-line 
+    },[])
     
     const handleSubmit = (e) => {
         e.preventDefault();
